@@ -28,3 +28,16 @@ Logger (creds.txt)
 Elasticsearch stores data
      |
      | (5) Kibana displays analytics
+```
+##  Components Used
+airbase-ng – Create rogue Wi-Fi AP
+
+dnsmasq – Handle DHCP/DNS requests
+
+Apache2 – Serve a fake login portal (HTML/PHP)
+
+Logstash – Parse credential logs
+
+Elasticsearch – Store structured logs
+
+Kibana – Visualize captured data
