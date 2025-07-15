@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <script>
+        let clickCount = 0;
+        function incrementClick() {
+            clickCount++;
+            document.getElementById("click_count").value = clickCount;
+        }
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/submit" method="POST" onsubmit="incrementClick()">
+        <label>Login:</label>
+        <input type="text" name="login" required><br><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <!-- Champs cachés -->
+        <input type="hidden" name="session_start" value="{{ session_start }}">
+        <input type="hidden" name="click_count" id="click_count" value="1">
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
